@@ -8,7 +8,58 @@
   };
   firebase.initializeApp(config);
 
-  var database = firebase.
+  var database = firebase.database()
+  // Initial Values
+  var trainName = "";
+  var destination = "";
+  var firstTrain = 0;
+  var freq = "";
+
+
+  // Capture Button Click
+  $("#addTrain").on("click", function() {
+
+    // Grabbed values from text boxes
+    trainName = $('#trainName').val().trim();
+    destination = $('#finalLocation').val().trim();
+    firstTrain = $('#trainTime').val().trim();
+    freq = $('#interval').val().trim();
+
+
+    // Code for handling the push
+    database.ref().push({
+        name: name,
+        email: email,
+       age: age,
+       comment: comment
+    })
+
+  // Don't refresh the page!
+    return false;
+  });
+
+  //Firebase watcher + initial loader HINT: .on("value")
+  database.ref().on("value", function(snapshot) {
+
+    // Log everything that's coming out of snapshot
+    console.log(snapshot.val());
+    console.log(snapshot.val().name);
+    console.log(snapshot.val().email);
+    console.log(snapshot.val().age);
+    console.log(snapshot.val().comment);
+
+    // Change the HTML to reflect
+    $("#namedisplay").html(snapshot.val().name);
+    $("#emaildisplay").html(snapshot.val().email);
+    $("#agedisplay").html(snapshot.val().age);
+    $("#commentdisplay").html(snapshot.val().comment);
+
+
+    // Handle the errors
+  }, function(errorObject){
+
+      console.log("Errors handled: " + errorObject.code)
+  })
 
 var frequencyInSeconds = 120; // this train arrives every two minutes = 120 seconds
 var nextTrain = ?; // get the start time of your train relative to today (ex: 20:30), then convert to seconds - google it!
