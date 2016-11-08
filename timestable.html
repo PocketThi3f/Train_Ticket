@@ -11,7 +11,7 @@
 <body>
 <div class="container-fluid">
 		<div class="jumbotron">
-			<h1>Get On The Pain Train, WOO WOO!</h1>
+			<h1>Another Journey, Another Time</h1>
 		</div>
 		
 	    <br>
@@ -60,13 +60,13 @@
                             <div class="form-group">
                                 <label for="location" class="col-lg-2 control-label">Destination</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="finalLocation">
+                                    <input type="text" class="form-control" id="destination">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="arrivaltime" class="col-lg-2 control-label">First Train Time (HH:mm-military time)</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="trainTime" autofocus>
+                                    <input type="text" class="form-control" id="firstTrain" autofocus>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -87,7 +87,16 @@
         </div>
     </div>
 </div>
+
+	<script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+
+	<script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
 	
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  	crossorigin="anonymous"></script>
+
+  	<script type="text/javascript" src="assets/javascript/app.js"></script>
+  	<!-- Always have JavaScript AFTER the jQuery so it loads properly -->
 </body>
-<script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
 </html>

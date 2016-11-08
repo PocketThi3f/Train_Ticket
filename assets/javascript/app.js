@@ -9,29 +9,22 @@
   firebase.initializeApp(config);
 
   var database = firebase.database()
-  // Initial Values
-  var trainName = "";
-  var destination = "";
-  var firstTrain = 0;
-  var freq = "";
-
 
   // Capture Button Click
   $("#addTrain").on("click", function() {
 
     // Grabbed values from text boxes
-    trainName = $('#trainName').val().trim();
-    destination = $('#finalLocation').val().trim();
-    firstTrain = $('#trainTime').val().trim();
-    freq = $('#interval').val().trim();
-
+    var trainName = $('#trainName').val().trim();
+    var destination = $('#destination').val().trim();
+    var firstTrain = $('#firstTrain').val().trim();
+    var freq = $('#interval').val().trim();
 
     // Code for handling the push
     database.ref().push({
-        name: name,
-        email: email,
-       age: age,
-       comment: comment
+        trainName: trainName,
+        destination: destination,
+        firstTrain: firstTrain,
+        frequency: freq
     })
 
   // Don't refresh the page!
@@ -39,20 +32,22 @@
   });
 
   //Firebase watcher + initial loader HINT: .on("value")
-  database.ref().on("value", function(snapshot) {
+  database.ref().on("child_added", function(childSnapshot) {
 
     // Log everything that's coming out of snapshot
-    console.log(snapshot.val());
-    console.log(snapshot.val().name);
-    console.log(snapshot.val().email);
-    console.log(snapshot.val().age);
-    console.log(snapshot.val().comment);
+    var newTrain = childSnapshot.val().trainName
+    var newLocation = childSnapshot.val().destination
+    var newFirstTrain = childSnapshot.val().firstTrain
+    var newFreq = childSnapshot.val().frequency
 
-    // Change the HTML to reflect
-    $("#namedisplay").html(snapshot.val().name);
-    $("#emaildisplay").html(snapshot.val().email);
-    $("#agedisplay").html(snapshot.val().age);
-    $("#commentdisplay").html(snapshot.val().comment);
+    var currentTime = moment().format('hh:mm');
+
+    // List of static items to appear
+    $('#trainSchedule').append("<tr><td>"
+      +newTrain+" </td><td> "
+      +newLocation+" </td><td> "
+      +newFreq+" </td><td> "+
+      +" </td></tr>");
 
 
     // Handle the errors
@@ -60,10 +55,3 @@
 
       console.log("Errors handled: " + errorObject.code)
   })
-
-var frequencyInSeconds = 120; // this train arrives every two minutes = 120 seconds
-var nextTrain = ?; // get the start time of your train relative to today (ex: 20:30), then convert to seconds - google it!
-var currentTimeInSeconds = new Date() / 1000; // divide by 1000 to convert ms to seconds
-while (nextTrain < currentTime){
-    nextTrain += frequency;
-}
