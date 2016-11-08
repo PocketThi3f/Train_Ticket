@@ -45,7 +45,7 @@
 
     // Current Time
     var thePresent = moment();
-    console.log("It is presently: " + moment(thePresent).format("hh:mm"));
+    console.log("It is presently: " + moment(thePresent).format("hh:mm:ss"));
 
     // Difference between the times
     var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -61,8 +61,8 @@
 
     // Next Train
     var nextTrain = moment().add(minutesTillNext, "minutes");
-    var catchTrain = moment(nextTrain).format("hh:mm");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+    var catchTrain = moment(nextTrain).format("hh:mm:ss");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm:ss"));
 
     // List of static items to appear
     $('#trainSchedule').append("<tr><td>"
@@ -71,9 +71,12 @@
       +newFreq+" </td><td> "+catchTrain
       +" </td><td> "+minutesTillNext+" </tr>");
 
+    // Clears textbox after clicking submit
+    $("#trainName, #destination, #firstTrain, #interval").val(""); 
+    return false;
 
     // Handle the errors
   }, function(errorObject){
 
       console.log("Errors handled: " + errorObject.code)
-  })
+  });
