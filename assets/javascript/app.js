@@ -71,7 +71,7 @@
       +newFreq+" </td><td> "+catchTrain
       +" </td><td> "+minutesTillNext+" </tr>");
 
-    // Clears textbox after clicking submit
+    // Clears textbox after submission
     $("#trainName, #destination, #firstTrain, #interval").val(""); 
     return false;
 
