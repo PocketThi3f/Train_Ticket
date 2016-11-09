@@ -27,8 +27,9 @@
         frequency: freq
     })
 
-  // Don't refresh the page!
-    return false;
+  // Doesn't refresh page IF in use otherwise, 
+  // bottom line of code refreshes page for updated time
+    // return false; 
   });
 
   //Firebase watcher + initial loader HINT: .on("value")
@@ -40,7 +41,7 @@
     var newFirstTrain = childSnapshot.val().firstTrain
     var newFreq = childSnapshot.val().frequency 
 
-    var firstTimeConverted = moment(newFirstTrain,"hh:mm").subtract(1, "years");
+    var firstTimeConverted = moment(newFirstTrain,"hh:mm:ss").subtract(1, "years");
     console.log(firstTimeConverted);
 
     // Current Time
@@ -71,7 +72,8 @@
       +newFreq+" </td><td> "+catchTrain
       +" </td><td> "+minutesTillNext+" </tr>");
 
-    // Clears textbox after submission
+    // Clears textbox after submission, 
+    // also refreshes values when passed on child added
     $("#trainName, #destination, #firstTrain, #interval").val(""); 
     return false;
 
