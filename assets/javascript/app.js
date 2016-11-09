@@ -9,6 +9,7 @@
   firebase.initializeApp(config);
 
   var database = firebase.database()
+  var audio = new Audio("assets/audio/JoeHisaishiOneSummer'sDay.mp3");
 
   // Capture Button Click
   $("#addTrain").on("click", function() {
@@ -82,3 +83,5 @@
 
       console.log("Errors handled: " + errorObject.code)
   });
+
+  audio.play();
