@@ -1,10 +1,178 @@
+* {
+
+	box-sizing: border-box;
+}
+
+html body {
+
+	margin:0;
+	padding:0;
+}
+
+.slideshow {
+
+	position: absolute;
+	height: 100%;
+	min-width: 100%;
+	top: 0;
+	left: 0;
+}
+
+.jumbotron {
+
+	z-index: 2000000000000;
+	position: relative;
+}
+
+.panel-body {
+
+	z-index: 1000000000000;
+}
+
+.tile1, .tile2, .tile3, .tile4, .tile5 {
+
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.tile1 {
+
+	background-image: url(../../assets/images/spiritedawayent.jpg);
+}
+
+.tile2 {
+
+	background-image: url("../../assets/images/spiritedawaymarket.png");
+	animation: tile2Anim 5s infinite;
+}
+
+.tile3 {
+
+	background-image: url("../../assets/images/spiritedawayshot.jpg");
+	animation: tile3Anim 10s infinite;
+}
+
+.tile4 {
+
+	background-image: url("../../assets/images/spiritedawaysun.jpg");
+	animation: tile4Anim 15s infinite;
+}
+
+.tile5 {
+
+	background-image: url("../../assets/images/spiritedhorizon.png");
+	animation: tile5Anim 20s infinite;
+}
+
+@-webkit-keyframes tile2Anim {
+
+	0% {
+
+		opacity: 0
+	}
+	25% {
+
+		opacity: 1
+
+	}
+	50% {
+
+		opacity: 1
+	}
+	75% {
+
+		opacity: 0
+	}
+	100% {
+
+		opacity: 0
+	}
+}
+
+@-webkit-keyframes tile3Anim {
+
+	0% {
+
+		opacity: 0
+	}
+	25% {
+
+		opacity: 1
+
+	}
+	50% {
+
+		opacity: 1
+	}
+	75% {
+
+		opacity: 0
+	}
+	100% {
+
+		opacity: 0
+	}
+}
+
+@-webkit-keyframes tile4Anim {
+
+	0% {
+
+		opacity: 0
+	}
+	25% {
+
+		opacity: 1
+
+	}
+	50% {
+
+		opacity: 1
+	}
+	75% {
+
+		opacity: 0
+	}
+	100% {
+
+		opacity: 0
+	}
+}
+
+@-webkit-keyframes tile5Anim {
+
+	0% {
+
+		opacity: 0
+	}
+	25% {
+
+		opacity: 1
+
+	}
+	50% {
+
+		opacity: 1
+	}
+	75% {
+
+		opacity: 0
+	}
+	100% {
+
+		opacity: 0
+	}
+}
+
 .jumbotron {
 
 	text-align: center;
 	border-style: solid;
 	border-width: 2px;
 	background-image: url("https://media.giphy.com/media/o6IgmnzDGRDNK/giphy.gif");
-
 }
 
 #jourText {
@@ -12,12 +180,17 @@
 	font-family: 'Shrikhand', cursive;
 	color: #ffe066;
 	font-size: 35px;
-
 }
 
-body {
 
-	background-image: url("../../assets/images/spiritedawayshot.jpg");
-	background-size: 100%;
-
-}
+/* Image References for CSS
+<img class="t1" src="assets/images/spiritedawayent.jpg">
+			
+<img class="t2" src="assets/images/spiritedawaymarket.png">
+						
+<img class="t3" src="assets/images/spiritedawayshot.jpg">
+					
+<img class="t4" src="assets/images/spiritedawaysun.jpg">
+					
+<img class="t5" src="assets/images/spiritedhorizon.png">
+*/

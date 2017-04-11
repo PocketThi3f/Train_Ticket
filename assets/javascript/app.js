@@ -63,8 +63,8 @@
 
     // Next Train
     var nextTrain = moment().add(minutesTillNext, "minutes");
-    var catchTrain = moment(nextTrain).format("hh:mm:ss");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm:ss"));
+    var catchTrain = moment(nextTrain).format("HH:mm:ss");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm:ss"));
 
     // List of static items to appear
     $('#trainSchedule').append("<tr><td>"
